@@ -1,0 +1,23 @@
+<div id="home">
+	<div
+		id="todos"
+		hx-get="/todos"
+		hx-trigger="load"
+		hx-target="#todos"
+	></div>
+	<form
+		hx-post="/todos"
+		hx-trigger="submit"
+		hx-target="#todos"
+		hx-on::after-request="this.reset()"
+	>
+		<input
+			type="text"
+			name="name"
+			placeholder="Add a new todo"
+			required
+			minlength="3"
+		/>
+		<button type="submit">Add</button>
+	</form>
+</div>

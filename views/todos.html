@@ -1,0 +1,13 @@
+<ul>
+	{{range .Todos}}
+	<li>
+		{{.Name}}
+		<input
+			type="checkbox"
+			hx-delete="/todos/{{.ID}}"
+			hx-trigger="change"
+			hx-target="#todos"
+		/>
+	</li>
+	{{end}}
+</ul>

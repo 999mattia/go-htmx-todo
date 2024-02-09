@@ -1,0 +1,27 @@
+<div id="register">
+	<h2>Register</h2>
+	<form
+		id="registerForm"
+		hx-post="/register"
+		hx-target="#container"
+	>
+		<label for="username">Username:</label><br />
+		<input
+			type="text"
+			id="username"
+			name="username"
+			required
+		/><br />
+		<label for="password">Password:</label><br />
+		<input
+			type="password"
+			id="password"
+			name="password"
+			required
+		/><br />
+		<input
+			type="submit"
+			value="Submit"
+		/>
+	</form>
+</div>

@@ -1,0 +1,33 @@
+<html>
+	<head>
+		<title>Go HTMX ToDo</title>
+		<meta charset="utf-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1"
+		/>
+		<script src="https://unpkg.com/htmx.org@1.9.4"></script>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap"
+			rel="stylesheet"
+		/>
+	</head>
+	<body
+		style="
+			display: flex;
+			justify-content: center;
+			font-family: 'Open Sans', sans-serif;
+		"
+	>
+		<main style="max-width: 500px; width: 100%">
+			<h1>Go HTMX ToDo</h1>
+			<div
+				id="container"
+				hx-get="/home"
+				hx-target="#container"
+				hx-trigger="load"
+				style="display: flex; justify-content: center"
+			></div>
+		</main>
+	</body>
+</html>
