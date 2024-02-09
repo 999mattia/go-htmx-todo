@@ -1,13 +1,21 @@
-<ul>
-	{{range .Todos}}
-	<li>
-		{{.Name}}
-		<input
-			type="checkbox"
-			hx-delete="/todos/{{.ID}}"
-			hx-trigger="change"
-			hx-target="#todos"
-		/>
-	</li>
-	{{end}}
-</ul>
+<div class="card bg-base-100 shadow-xl mt-10">
+	<div class="card-body">
+		<h2 class="card-title">ToDo's</h2>
+		<ul>
+			{{range .Todos}}
+			<li>
+				<label class="label cursor-pointer">
+					<span class="label-text">{{.Name}}</span>
+					<input
+						type="checkbox"
+						class="checkbox checkbox-primary"
+						hx-delete="/todos/{{.ID}}"
+						hx-trigger="change"
+						hx-target="#todos"
+					/>
+				</label>
+			</li>
+			{{end}}
+		</ul>
+	</div>
+</div>

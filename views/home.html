@@ -1,23 +1,38 @@
-<div id="home">
+<div
+	id="home"
+	class="mt-10"
+>
+	<div class="card bg-base-100 shadow-xl">
+		<div class="card-body">
+			<h2 class="card-title">Add ToDo</h2>
+			<form
+				hx-post="/todos"
+				hx-trigger="submit"
+				hx-target="#todos"
+				hx-on::after-request="this.reset()"
+			>
+				<input
+					type="text"
+					name="name"
+					placeholder="Add a new todo"
+					class="input input-bordered input-primary w-full max-w-xs"
+					required
+					minlength="3"
+				/>
+				<button
+					type="submit"
+					class="btn btn-outline btn-primary w-full mt-3"
+				>
+					Add
+				</button>
+			</form>
+		</div>
+	</div>
+
 	<div
 		id="todos"
 		hx-get="/todos"
 		hx-trigger="load"
 		hx-target="#todos"
 	></div>
-	<form
-		hx-post="/todos"
-		hx-trigger="submit"
-		hx-target="#todos"
-		hx-on::after-request="this.reset()"
-	>
-		<input
-			type="text"
-			name="name"
-			placeholder="Add a new todo"
-			required
-			minlength="3"
-		/>
-		<button type="submit">Add</button>
-	</form>
 </div>

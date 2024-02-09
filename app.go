@@ -33,11 +33,6 @@ func initDb() *gorm.DB {
 
 	db.AutoMigrate(&ToDo{}, &User{})
 
-	// admin := User{Username: "admin", Password: "admin"}
-	// mattia := User{Username: "mattia", Password: "mattia"}
-	// db.Create(&admin)
-	// db.Create(&mattia)
-
 	return db
 }
 

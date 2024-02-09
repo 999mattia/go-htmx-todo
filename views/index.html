@@ -1,4 +1,4 @@
-<html>
+<html data-theme="light">
 	<head>
 		<title>Go HTMX ToDo</title>
 		<meta charset="utf-8" />
@@ -7,24 +7,22 @@
 			content="width=device-width, initial-scale=1"
 		/>
 		<script src="https://unpkg.com/htmx.org@1.9.4"></script>
+		<link
+			href="https://cdn.jsdelivr.net/npm/daisyui@4.6.2/dist/full.min.css"
+			rel="stylesheet"
+			type="text/css"
+		/>
+		<script src="https://cdn.tailwindcss.com"></script>
 	</head>
-	<body
-		style="
-			display: flex;
-			justify-content: center;
-			font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
-				'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
-				'Helvetica Neue', sans-serif !important;
-		"
-	>
-		<main style="max-width: 500px; width: 100%">
-			<h1>Go HTMX ToDo</h1>
+	<body class="flex justify-center">
+		<main class="max-w-screen-sm w-full m-3">
+			<h1 class="text-4xl font-bold">Go HTMX ToDo</h1>
 			<div
 				id="container"
+				class="flex justify-center"
 				hx-get="/home"
 				hx-target="#container"
 				hx-trigger="load"
-				style="display: flex; justify-content: center"
 			></div>
 		</main>
 	</body>
