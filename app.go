@@ -2,12 +2,15 @@ package main
 
 import (
 	"fmt"
+	"log"
+	"os"
 	"strconv"
 	"time"
 
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/template/html/v2"
-	"gorm.io/driver/sqlite"
+	"github.com/joho/godotenv"
+	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 )
 
@@ -26,7 +29,7 @@ type ToDo struct {
 }
 
 func initDb() *gorm.DB {
-	db, err := gorm.Open(sqlite.Open("db.db"), &gorm.Config{})
+	db, err := gorm.Open(postgres.Open(os.Getenv("DB_URL")), &gorm.Config{})
 	if err != nil {
 		panic("failed to connect database")
 	}
@@ -53,6 +56,11 @@ func getTodosForUser(db *gorm.DB, c *fiber.Ctx) []ToDo {
 }
 
 func main() {
+	err := godotenv.Load()
+	if err != nil {
+		log.Fatal("Error loading .env file")
+	}
+
 	db := initDb()
 
 	engine := html.New("./views", ".html")
