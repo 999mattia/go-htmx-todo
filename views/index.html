@@ -16,7 +16,14 @@
 	</head>
 	<body class="flex justify-center">
 		<main class="max-w-screen-sm w-full m-3">
-			<h1 class="text-4xl font-bold">Go HTMX ToDo</h1>
+			<div class="navbar bg-base-100">
+				<a
+					class="btn btn-ghost text-xl"
+					hx-get="/home"
+					hx-target="#container"
+					>Go HTMX ToDo</a
+				>
+			</div>
 			<div
 				id="container"
 				class="flex justify-center"
